@@ -51,6 +51,59 @@ def opcao_4(catalogo):
         print(catalogo.nome_conteudo(conteudo_id))
   
 
+def opcao_5(catalogo):
+    conteudo_id = input("Id do conteúdo: ")
+    if conteudo_id not in catalogo.conteudos:
+        print("Conteúdo não encontrado.")
+        return
+
+    print("Rating:", catalogo.rating_de(conteudo_id))
+    print("Duração total (seg):", catalogo.duracao_total_de(conteudo_id))
+    print("Gêneros:", catalogo.generos_de(conteudo_id))
+    print("Plataformas:", catalogo.plataformas_de(conteudo_id))
+    print("Data adicionado:", catalogo.data_adicionado_de(conteudo_id))
+
+    tipo = catalogo.conteudos[conteudo_id]["tipo"]
+    if tipo == "musica":
+        print("Execuções:", catalogo.execucoes_de(conteudo_id))
+
+
+def opcao_6(catalogo):
+    genero = input("Gênero: ")
+    resultado = catalogo.conteudos_do_genero(genero)
+    if not resultado:
+        print("Nenhum conteúdo nesse gênero.")
+        return
+    for conteudo_id in resultado:
+        print(catalogo.nome_conteudo(conteudo_id))
+
+
+def opcao_7(catalogo):
+    conteudo_id = input("Id do conteúdo: ")
+    ok = catalogo.enfileirar(conteudo_id)
+    if ok:
+        print("Enfileirado.")
+    else:
+        print("Id inexistente, não enfileirado.")
+
+
+def opcao_8(catalogo):
+    resultado = catalogo.proximo()
+    if resultado is None:
+        print("Fila vazia.")
+    else:
+        print(catalogo.nome_conteudo(resultado))
+
+
+def opcao_9(catalogo):
+    fila = catalogo.fila_atual()
+    if not fila:
+        print("Fila vazia.")
+        return
+    for conteudo_id in fila:
+        print(catalogo.nome_conteudo(conteudo_id))
+
+
 def main():
     caminho = sys.argv[1]
     catalogo = Catalogo(caminho)
@@ -80,6 +133,18 @@ def main():
             opcao_3(catalogo)
         elif opcao == "4":
             opcao_4(catalogo)
+        elif opcao == "5":
+            opcao_5(catalogo)
+        elif opcao == "6":
+            opcao_6(catalogo)
+        elif opcao == "7":
+            opcao_7(catalogo)
+        elif opcao == "8":
+            opcao_8(catalogo)
+        elif opcao == "9":
+            opcao_9(catalogo)
+        else:
+            print("Opção inválida")
         
         else:
             print("Opção inválida")
