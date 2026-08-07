@@ -16,8 +16,8 @@ def opcao_2(catalogo):
     if usuario_id is None:
         print("Usuário não encontrado.")
         return
-    playlist = catalogo.playlist_de(usuario_id)
-    print(playlist)
+    for conteudo_id in playlist:
+    print(catalogo.nome_conteudo(conteudo_id))
 
 def opcao_3(catalogo):
     nome = input("Nome do usuário: ")
@@ -35,8 +35,29 @@ def opcao_3(catalogo):
         print("Posição inválida.")
         return
 
-    print(resultado)
-    
+    print(catalogo.nome_conteudo(conteudo_id))
+
+def opcao_4(catalogo):
+    quantidade = int(input("Quantos usuários? "))
+
+    usuario_ids = []
+
+    for i in range(quantidade):
+        nome = input("Nome do usuário: ")
+
+        usuario_id = catalogo.buscar_usuario_por_nome(nome)
+
+        if usuario_id is None:
+            print("Usuário não encontrado.")
+            return
+
+        usuario_ids.append(usuario_id)
+
+    resultado = catalogo.intersecao_playlists(usuario_ids)
+
+    for conteudo_id in resultado:
+        print(catalogo.nome_conteudo(conteudo_id))
+  
 
 def main():
     caminho = sys.argv[1]
