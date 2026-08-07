@@ -14,13 +14,13 @@ def main():
     print("0. Sair")
     opcao = input("Informe a opção desejada: ")
 
-      if opcao == "0":
-        break
-      elif opcao == "1":
-        catalogo.listar.usuarios()
-        print(nomes)
-      else:
-        print("Opção inválida")
+    if opcao == "0":
+      break
+    elif opcao == "1":
+      resultado = catalogo.listar_usuarios()
+      print(resultado)
+    else:
+      print("Opção inválida")
 
 if __name__ == "__main__":
     main()
