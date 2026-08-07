@@ -168,3 +168,16 @@ class Catalogo:
         
     def fila_atual(self) -> list[str]: 
         return list(self.fila)
+
+
+    def nome_conteudo(self, conteudo_id):
+        conteudo = self.conteudos.get(conteudo_id)
+
+        if conteudo is None:
+            return None
+
+        titulo = conteudo["titulo"]
+        artista = conteudo["artista"]
+        tipo = conteudo["tipo"]
+
+        return f"{titulo}, de {artista} ({tipo})"
