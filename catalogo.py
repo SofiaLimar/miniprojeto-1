@@ -20,11 +20,30 @@ class Catalogo:
         self.fila = deque()
 
     # --- usuários e playlists ---
-    def listar_usuarios(self) -> list[str]: ...
-    def buscar_usuario_por_nome(self, nome: str) -> str | None: ...
-    def playlist_de(self, usuario_id: str) -> list[str] | None: ...
-    def conteudo_na_posicao(self, usuario_id: str, posicao: int) -> str | None: ...
-    def intersecao_playlists(self, usuario_ids: list[str]) -> list[str]: ...
+    def listar_usuarios(self) -> list[str]: 
+        nomes = []
+        for nome in self.usuarios.values():
+            nomes.append(usuario["nome"])
+        nomes.sort()
+        return nomes
+
+    
+    def buscar_usuario_por_nome(self, nome: str) -> str | None: 
+        for usuario in self.usuario.values():
+            if usuario["nome"].lower == nome.lower
+                return nome["id"]
+            else:
+                return None
+
+        
+    def playlist_de(self, usuario_id: str) -> list[str] | None: 
+
+        
+    def conteudo_na_posicao(self, usuario_id: str, posicao: int) -> str | None: 
+
+        
+    def intersecao_playlists(self, usuario_ids: list[str]) -> list[str]: 
+        
 
     # --- dados de um conteúdo ---
     def rating_de(self, conteudo_id: str) -> float | None: ...
