@@ -52,10 +52,23 @@ def opcao_4(catalogo):
   
 
 def opcao_5(catalogo):
-    conteudo_id = input("Id do conteúdo: ")
-    if conteudo_id not in catalogo.conteudos:
+    titulo = input("Título do conteúdo: ")
+    artista = input("Artista: ")
+    conteudo_id = catalogo.buscar_conteudo_por_titulo_artista(titulo, artista)
+    
+    if conteudo_id is None:
         print("Conteúdo não encontrado.")
         return
+
+    print("Rating:", catalogo.rating_de(conteudo_id))
+    print("Duração total (seg):", catalogo.duracao_total_de(conteudo_id))
+    print("Gêneros:", catalogo.generos_de(conteudo_id))
+    print("Plataformas:", catalogo.plataformas_de(conteudo_id))
+    print("Data adicionado:", catalogo.data_adicionado_de(conteudo_id))
+
+    tipo = catalogo.conteudos[conteudo_id]["tipo"]
+    if tipo == "musica":
+        print("Execuções:", catalogo.execucoes_de(conteudo_id))
 
     print("Rating:", catalogo.rating_de(conteudo_id))
     print("Duração total (seg):", catalogo.duracao_total_de(conteudo_id))
