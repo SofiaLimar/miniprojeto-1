@@ -18,7 +18,6 @@ def main():
 
         obtido = respostas[chave]
 
-       
     if isinstance(esperado, float) and isinstance(obtido, (int, float)):
       correto = abs(esperado - obtido) < 1e-6
     else:
@@ -44,3 +43,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+feat: adiciona conferir.py
