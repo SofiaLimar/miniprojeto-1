@@ -30,11 +30,11 @@ class Catalogo:
         return nomes
 
     
-    def buscar_usuario_por_nome(self, nome: str) -> str | None: 
+    def buscar_usuario_por_nome(self, nome: str) -> str | None:
         for usuario in self.usuarios.values():
-            if usuario["nome"].lower() == nome.lower:
-                return nome["id"]
-        
+            if usuario["nome"].lower() == nome.lower():
+                return usuario["id"]
+
         return None
 
         
