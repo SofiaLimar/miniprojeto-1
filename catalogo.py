@@ -64,7 +64,7 @@ class Catalogo:
             playlist = self.playlist_de(usuario_id)
             if playlist is None:         
                 return []
-        playlists.append(set(playlist))
+            playlists.append(set(playlist))
 
         resultado = playlists[0]
         for p in playlists[1:]:
