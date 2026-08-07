@@ -16,7 +16,7 @@ def main():
           ausentes.append(chave)
           continue
 
-        obtido = respostas[chave]
+    obtido = respostas[chave]
 
     if isinstance(esperado, float) and isinstance(obtido, (int, float)):
       correto = abs(esperado - obtido) < 1e-6
