@@ -56,10 +56,31 @@ class Catalogo:
         return playlist[posicao]
                 
     def intersecao_playlists(self, usuario_ids: list[str]) -> list[str]: 
-        
+        playlists = []
+        for usuario_id in usuario_ids:
+            playlist = self.playlist_de(usuario_id)
+            if playlist is None:         
+                return []
+        playlists.append(set(playlist))
+
+        resultado = playlists[0]
+        for p in playlists[1:]:
+            resultado = resultado & p    
+
+        return sorted(resultado)
 
     # --- dados de um conteúdo ---
-    def rating_de(self, conteudo_id: str) -> float | None: ...
+    def rating_de(self, conteudo_id: str) -> float | None: 
+        conteudo = self.conteudos.get(conteudo_id)
+        if conteudo is None:
+            return None
+        if "rating" not in conteudo:
+            return None
+        rating = conteudo["rating"]
+        if isinstance(rating, str):
+            rating = float(rating)
+        return rating
+
     def duracao_total_de(self, conteudo_id: str) -> int | None: ...
     def generos_de(self, conteudo_id: str) -> list[str] | None: ...
     def plataformas_de(self, conteudo_id: str) -> list[str] | None: ...
