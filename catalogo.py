@@ -45,8 +45,16 @@ class Catalogo:
 
         
     def conteudo_na_posicao(self, usuario_id: str, posicao: int) -> str | None: 
-
-        
+        playlist = self.playlist_de(usuario_id)
+    
+        if playlist is None:
+            return None
+    
+        if posicao < 0 or posicao >= len(playlist):
+            return None
+    
+        return playlist[posicao]
+                
     def intersecao_playlists(self, usuario_ids: list[str]) -> list[str]: 
         
 
