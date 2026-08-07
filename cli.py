@@ -92,12 +92,19 @@ def opcao_6(catalogo):
 
 
 def opcao_7(catalogo):
-    conteudo_id = input("Id do conteúdo: ")
+    titulo = input("Título do conteúdo: ")
+    artista = input("Artista: ")
+    conteudo_id = catalogo.buscar_conteudo_por_titulo_artista(titulo, artista)
+
+    if conteudo_id is None:
+        print("Conteúdo não encontrado.")
+        return
+
     ok = catalogo.enfileirar(conteudo_id)
     if ok:
         print("Enfileirado.")
     else:
-        print("Id inexistente, não enfileirado.")
+        print("Conteúdo inexistente, não enfileirado.")
 
 
 def opcao_8(catalogo):
