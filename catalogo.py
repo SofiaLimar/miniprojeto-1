@@ -151,6 +151,18 @@ class Catalogo:
 
 
     # --- fila de reprodução ---
-    def enfileirar(self, conteudo_id: str) -> bool: ...
-    def proximo(self) -> str | None: ...
-    def fila_atual(self) -> list[str]: ...
+    def enfileirar(self, conteudo_id: str) -> bool: 
+        if conteudo_id not in self.conteudos:
+            return False
+        self.fila.append(conteudo_id)
+        return True
+
+
+    def proximo(self) -> str | None:
+        if len(self.fila) == 0:
+            return None
+        return self.fila.popleft()
+
+        
+    def fila_atual(self) -> list[str]: 
+        return list(self.fila)
