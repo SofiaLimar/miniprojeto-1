@@ -17,7 +17,7 @@ def opcao_2(catalogo):
         print("Usuário não encontrado.")
         return
     for conteudo_id in playlist:
-    print(catalogo.nome_conteudo(conteudo_id))
+        print(catalogo.nome_conteudo(conteudo_id))
 
 def opcao_3(catalogo):
     nome = input("Nome do usuário: ")
