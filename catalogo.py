@@ -187,4 +187,4 @@ class Catalogo:
         for conteudo_id, conteudo in self.conteudos.items():
             if conteudo["titulo"].lower() == titulo.lower() and conteudo["artista"].lower() == artista.lower():
                 return conteudo_id
-    return None
+        return None
