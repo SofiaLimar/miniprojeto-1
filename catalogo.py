@@ -6,7 +6,7 @@ Esta é a peça central do projeto: carrega o JSON uma vez, constrói os
 import json
 class Catalogo:
     def __init__(self, caminho_json: str): 
-      with open(caminho_json, "r", encoding="utf-8") as arquivo:
+        with open(caminho_json, "r", encoding="utf-8") as arquivo:
             dados = json.load(arquivo)
         
         self.conteudos = {}
@@ -42,7 +42,7 @@ class Catalogo:
                 return usuario["playlist"]
     
         return None
-
+        
         
     def conteudo_na_posicao(self, usuario_id: str, posicao: int) -> str | None: 
         playlist = self.playlist_de(usuario_id)
