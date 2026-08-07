@@ -31,7 +31,7 @@ def opcao_3(catalogo):
     posicao = int(input("Informe a posição: "))
     resultado = catalogo.conteudo_na_posicao(usuario_id, posicao - 1)
 
-    if conteudo is None:
+    if resultado is None:
         print("Posição inválida.")
         return
 
