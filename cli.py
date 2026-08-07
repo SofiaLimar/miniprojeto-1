@@ -50,10 +50,10 @@ def main():
         print("3. Conteúdo na posição N da playlist)")
         print("4. Interseção de playlists (N usuários)")
         print("5. Dados de um conteúdo (rating, duração, gêneros, plataformas, data, execuções)")
-        print("6. Conteúdos de um gênero"")
-        print("7. Enfileirar conteúdo na fila de reprodução"")
+        print("6. Conteúdos de um gênero")
+        print("7. Enfileirar conteúdo na fila de reprodução")
         print("8. Tocar próximo da fila")
-        print("9. Ver fila atual"")
+        print("9. Ver fila atual")
         print("0. Sair")
         opcao = input("Informe a opção desejada: ")
 
