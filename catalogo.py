@@ -32,11 +32,16 @@ class Catalogo:
         for usuario in self.usuario.values():
             if usuario["nome"].lower == nome.lower
                 return nome["id"]
-            else:
-                return None
+        
+        return None
 
         
     def playlist_de(self, usuario_id: str) -> list[str] | None: 
+        for usuario in self.usuarios.values():
+            if usuario["id"] == usuario_id:
+                return usuario["playlist"]
+    
+        return None
 
         
     def conteudo_na_posicao(self, usuario_id: str, posicao: int) -> str | None: 
