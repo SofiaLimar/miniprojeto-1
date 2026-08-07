@@ -141,7 +141,14 @@ class Catalogo:
         return execucoes
 
 
-    def conteudos_do_genero(self, genero: str) -> list[str]: ...
+    def conteudos_do_genero(self, genero: str) -> list[str]: 
+         ids = []
+        for conteudo_id in self.conteudos:
+            generos = self.generos_de(conteudo_id)
+            if genero in generos:
+                ids.append(conteudo_id)
+        return sorted(ids)
+
 
     # --- fila de reprodução ---
     def enfileirar(self, conteudo_id: str) -> bool: ...
