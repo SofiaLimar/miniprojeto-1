@@ -24,7 +24,7 @@ class Catalogo:
     # --- usuários e playlists ---
     def listar_usuarios(self) -> list[str]: 
         nomes = []
-        for nome in self.usuarios.values():
+        for usuario in self.usuarios.values():
             nomes.append(usuario["nome"])
         nomes.sort()
         return nomes
