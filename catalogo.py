@@ -184,7 +184,7 @@ class Catalogo:
 
 
     def buscar_conteudo_por_titulo_artista(self, titulo: str, artista: str) -> str | None:
-    for conteudo_id, conteudo in self.conteudos.items():
-        if conteudo["titulo"].lower() == titulo.lower() and conteudo["artista"].lower() == artista.lower():
-            return conteudo_id
+        for conteudo_id, conteudo in self.conteudos.items():
+            if conteudo["titulo"].lower() == titulo.lower() and conteudo["artista"].lower() == artista.lower():
+                return conteudo_id
     return None
