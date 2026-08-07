@@ -114,7 +114,7 @@ class Catalogo:
 
     
     def plataformas_de(self, conteudo_id: str) -> list[str] | None: 
-            conteudo = self.conteudos.get(conteudo_id)
+        conteudo = self.conteudos.get(conteudo_id)
         if conteudo is None:
             return None
         return sorted(conteudo.get("plataformas", []))
@@ -142,7 +142,7 @@ class Catalogo:
 
 
     def conteudos_do_genero(self, genero: str) -> list[str]: 
-         ids = []
+        ids = []
         for conteudo_id in self.conteudos:
             generos = self.generos_de(conteudo_id)
             if genero in generos:
